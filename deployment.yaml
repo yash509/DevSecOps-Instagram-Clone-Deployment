@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: insta-deployment
+spec:
+  replicas: 6  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: insta
+  template:
+    metadata:
+      labels:
+        app: insta
+    spec:
+      containers:
+      - name: insta
+        image: yash5090/insta:latest
+        ports:
+        - containerPort: 3000
